@@ -2,7 +2,7 @@
   "name": "niconicomments-for-onecomme",
   "version": "0.0.1",
   "description": "template for onecomme using niconicomments",
-  "main": "dist/main.js",
+  "main": "src/main.ts",
   "author": "xpa <xpadev@gmail.com>",
   "license": "MIT",
   "private": false,
