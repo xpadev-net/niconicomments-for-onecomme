@@ -22,6 +22,6 @@ jobs:
         with:
           draft: true
           files: |
-            *.zip
+            dist/*.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
