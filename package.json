@@ -9,7 +9,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build&node ./utils/replace.js",
+    "build": "tsc && vite build&&node ./utils/replace.js",
     "preview": "vite preview",
     "check-types": "npx tsc --noEmit --jsx react",
     "eslint": "eslint src/**/*.ts*",
