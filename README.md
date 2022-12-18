@@ -1,5 +1,4 @@
 # niconicomments for onecomme
-[[English](https://github.com/xpadev-net/niconicomments-convert/blob/master/README.en.md)]
 
 
 niconicommentsを使ってコメントを表示する配信者向けツールです
