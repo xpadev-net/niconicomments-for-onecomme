@@ -2,7 +2,7 @@ import NiconiComments,{formattedComment} from "@xpadev-net/niconicomments";
 import './style.css'
 
 const JSON_PATH = '../../comment.json'
-const LIMIT = 30
+const LIMIT = 1000
 
 
 const info = (all:any) => {
