@@ -1,23 +1,53 @@
+import NiconiComments,{formattedComment} from "@xpadev-net/niconicomments";
 import './style.css'
-import typescriptLogo from './typescript.svg'
-import { setupCounter } from './counter'
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+const JSON_PATH = '../../comment.json'
+const LIMIT = 30
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+
+const info = (all:any) => {
+  const dom = document.createElement("div");
+  dom.innerHTML = all;
+  dom.classList.add("info");
+  document.getElementById("app")!.append(dom);
+  setTimeout(()=>dom.remove(),10000);
+}
+
+const init = async() => {
+  document.querySelector<HTMLDivElement>('#app')!.innerHTML = `<canvas id="canvas" width="1920" height="1080"></canvas>`;
+  await window.OneSDK.ready();
+  const canvas = document.getElementById("canvas") as HTMLCanvasElement;
+  if (!canvas) throw new Error("fail to get canvas element");
+  window.OneSDK.setup({jsonPath: JSON_PATH,commentLimit: LIMIT});
+  const nico = new NiconiComments(canvas,[],{format:"formatted"});
+  const startTime = performance.now();
+  const interval = setInterval(()=>{
+    nico.drawCanvas(Math.floor((performance.now() - startTime)/10));
+  },10);
+  const processedComments:string[] = [];
+  window.OneSDK.subscribe({action:"comments",callback: (comments) => {
+    const filter = comments.filter((comment)=>!processedComments.includes(comment.data.id));
+    try{
+      const formattedComments:formattedComment[] = filter.map((comment) => {
+        processedComments.push(comment.data.id);
+        return {
+          content: comment.data.comment,
+          date: Math.floor(comment.data.timestamp/1000),
+          date_usec: Number((comment.data.timestamp+"").slice(-3)),
+          id: comment.data.id,
+          layer: 0,
+          mail: ["184"],
+          owner: comment.data.isOwner,
+          premium: false,
+          user_id: comment.data.userId,
+          vpos: Math.floor((performance.now() - startTime)/10) + 200
+        }
+      });
+      nico.addComments(...formattedComments);
+    }catch (e){
+      info(e);
+    }
+  }})
+  window.OneSDK.connect()
+}
+window.onload = init;
