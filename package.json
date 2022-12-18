@@ -10,12 +10,26 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build&node ./utils/replace.js",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "check-types": "npx tsc --noEmit --jsx react",
+    "eslint": "eslint src/**/*.ts*",
+    "eslint:fix": "eslint src/**/*.ts* --fix",
+    "format": "prettier --write \"src/**/*.{tsx,ts,js,json,css,scss}\"",
+    "lint": "npm run eslint&&npm run check-types",
+    "lint:fix": "npm run format&&npm run eslint:fix&&npm run check-types",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@types/node": "^18.11.17",
+    "@typescript-eslint/eslint-plugin": "^5.43.0",
+    "@typescript-eslint/parser": "^5.43.0",
     "@xpadev-net/niconicomments": "^0.2.42",
     "typescript": "^4.9.3",
-    "vite": "^4.0.0"
+    "vite": "^4.0.0",
+    "eslint": "^8.27.0",
+    "eslint-config-prettier": "8.5.0",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.0.4",
+    "prettier": "^2.8.0"
   }
 }
