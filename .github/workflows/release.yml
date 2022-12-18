@@ -1,0 +1,27 @@
+name: release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm install -g yarn
+      - run: yarn install
+      - run: npm run build
+      - run: zip -r niconicomments_for_onecomme-${GITHUB_REF##*/}.zip dist/
+      - uses: softprops/action-gh-release@v1
+        with:
+          draft: true
+          files: |
+            *.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
