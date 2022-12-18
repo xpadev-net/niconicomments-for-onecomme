@@ -17,7 +17,7 @@ jobs:
       - run: npm install -g yarn
       - run: yarn install
       - run: yarn build
-      - run: zip -r niconicomments_for_onecomme-${GITHUB_REF##*/}.zip dist/
+      - run: zip -r niconicomments_for_onecomme-${GITHUB_REF##*/}.zip dist/*
       - uses: softprops/action-gh-release@v1
         with:
           draft: true
