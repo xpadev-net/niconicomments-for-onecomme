@@ -1,3 +1,9 @@
+# fork版の変更点
+
+YouTubeからコメントを拾うと、imgタグでsvgを表示しようとしてくるので、
+<img src="hoge.svg" alt="★" />
+みたいな文字列がコメントに入ってた時は、★だけ表示するように改造しました。
+
 # niconicomments for onecomme
 
 
