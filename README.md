@@ -2,9 +2,19 @@
 
 YouTubeからコメントを拾うと、imgタグでsvgを表示しようとしてくるので、
 ```HTML
-<img src="hoge.svg" alt="★" />
+<img src="hoge.svg" alt=":★" />
 ```
 みたいな文字列がコメントに入ってた時は、★だけ表示するように改造しました。
+
+あと、ニコ生からHTMLエンティティが流れてくることがあったので、
+```text
+&#39;
+```
+を
+```html
+'
+```
+に変換するようにしました。
 
 # niconicomments for onecomme
 
