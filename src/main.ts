@@ -1,6 +1,11 @@
-import NiconiComments, { formattedComment } from "@xpadev-net/niconicomments";
+import "vite/modulepreload-polyfill";
+
+import NiconiComments from "@xpadev-net/niconicomments";
+import type { FormattedComment } from "@xpadev-net/niconicomments";
 import "./style.css";
 import { CommonData } from "@/@types/comments";
+import { decodeSpecialChars } from "@/utils/decodeSpecialChars";
+import { ImageComment } from "@/niconicomments/ImageComment";
 
 const JSON_PATH = "../../comment.json";
 const LIMIT = 1000;
@@ -23,7 +28,12 @@ const init = async () => {
   const canvas = document.getElementById("canvas") as HTMLCanvasElement;
   if (!canvas) throw new Error("fail to get canvas element");
   window.OneSDK.setup({ jsonPath: JSON_PATH, commentLimit: LIMIT });
-  const nico = new NiconiComments(canvas, [], { format: "formatted" });
+  const nico = new NiconiComments(canvas, [], {
+    format: "formatted",
+    config: {
+      commentPlugins: [{ class: ImageComment, condition: () => true }],
+    },
+  });
   const startTime = performance.now();
   setInterval(() => {
     nico.drawCanvas(Math.floor((performance.now() - startTime) / 10));
@@ -36,11 +46,11 @@ const init = async () => {
         (comment) => !processedComments.includes(comment.data.id)
       );
       try {
-        const formattedComments: formattedComment[] = filter.map(
+        const formattedComments: FormattedComment[] = filter.map(
           (comment: CommonData) => {
             processedComments.push(comment.data.id);
             return {
-              content: comment.data.comment.replace(/<img.*?alt=":?(.*?)".*?>/ig, '$1').replace("&#34;", '"').replace("&#39;", "'").replace("&lt;", "<").replace("&gt;", ">"),
+              content: decodeSpecialChars(comment.data.comment),
               date: Math.floor(comment.data.timestamp / 1000),
               date_usec: Number(comment.data.timestamp.toString().slice(-3)),
               id: processedComments.length,
@@ -50,7 +60,7 @@ const init = async () => {
               premium: false,
               user_id: -1,
               vpos: Math.floor((performance.now() - startTime) / 10) + 200,
-            } as formattedComment;
+            } as FormattedComment;
           }
         );
         nico.addComments(...formattedComments);

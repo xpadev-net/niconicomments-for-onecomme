@@ -1,6 +1,6 @@
 {
   "name": "niconicomments-for-onecomme",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "template for onecomme using niconicomments",
   "main": "src/main.ts",
   "author": "xpa <xpadev@gmail.com>",
@@ -23,7 +23,7 @@
     "@types/node": "^18.11.17",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "@typescript-eslint/parser": "^5.43.0",
-    "@xpadev-net/niconicomments": "^0.2.42",
+    "@xpadev-net/niconicomments": "^0.2.52",
     "typescript": "^4.9.3",
     "vite": "^4.0.0",
     "eslint": "^8.27.0",

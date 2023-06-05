@@ -265,10 +265,10 @@
     "@typescript-eslint/types" "5.46.1"
     eslint-visitor-keys "^3.3.0"
 
-"@xpadev-net/niconicomments@^0.2.42":
-  version "0.2.42"
-  resolved "https://registry.yarnpkg.com/@xpadev-net/niconicomments/-/niconicomments-0.2.42.tgz#f4338bf08fb3748f47753fa8a763344a5487794f"
-  integrity sha512-PXIlFzroU+x/H8dZ1My3II60SKN3J2SpRHXf5u8FSxO/KS98SnGTTnEtPtuc346mYtIm191A9h+g+v+mW3bvBg==
+"@xpadev-net/niconicomments@^0.2.52":
+  version "0.2.52"
+  resolved "https://registry.yarnpkg.com/@xpadev-net/niconicomments/-/niconicomments-0.2.52.tgz#8dc24e6226d521b4c9982bf629c1ac965612008d"
+  integrity sha512-EAExosoDGiaJZiO3JFErnXT5acsV2iKJx+OXbYybJ/oG6GrCsF2SzRcU08VDRKMKyinNUBSKho25ANlFx5YrDw==
 
 acorn-jsx@^5.3.2:
   version "5.3.2"
