@@ -1,22 +1,3 @@
-# fork版の変更点
-
-YouTubeからコメントを拾うと、imgタグでsvgを表示しようとしてくるので、
-```HTML
-<img src="hoge.svg" alt=":★" />
-```
-みたいな文字列がコメントに入ってた時は、★だけ表示するように改造しました。
-
-あと、ニコ生からHTMLエンティティが流れてくることがあったので、
-```text
-&#34; &#39; &lt; &gt;
-```
-を
-```html
-" ' < >
-```
-に変換するようにしました。
-なんで数値参照と文字参照が混在してるのかはわからない。
-
 # niconicomments for onecomme
 
 
@@ -40,3 +21,6 @@ niconicommentsを使ってコメントを表示する配信者向けツールで
 - わんコメ右上の三点リーダーからフォルダを開く
 - 開いたフォルダーに解凍したzipフォルダーを放り込む
 - テンプレをOBSに追加
+
+## スペシャルサンクス
+[Aka Diffusion](https://github.com/aka7774) さんの[フォーク](https://github.com/aka7774/niconicomments-for-onecomme)から絵文字とHTMLの対応を取り込ませていただきました
