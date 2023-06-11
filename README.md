@@ -32,7 +32,8 @@ niconicommentsを使ってコメントを表示する配信者向けツールで
 ### commands
 
 指定したフィールドが特定の値の場合にコマンドを適用することが出来ます  
-フィールドの仕様は わんコメ公式の技術ドキュメント [Commentの構造](https://onecomme.com/docs/developer/comment-json) を参照してください    
+フィールドの仕様は わんコメ公式の技術ドキュメント [Commentの構造](https://onecomme.com/docs/developer/comment-json) を参照してください  
+ネストしているフィールドについては `item.name` などフィールド名を `.` でつなげることで参照できます  
 `commands`内に各条件を配列として書き込んでください
 
 データ構造は以下のとおりです
