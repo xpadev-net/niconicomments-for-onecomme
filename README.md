@@ -60,7 +60,8 @@ niconicommentsを使ってコメントを表示する配信者向けツールで
       },
       "content": "big red"
     }
-  ]
+  ],
+  "defaultCommand": ""
 }
 ```
 
