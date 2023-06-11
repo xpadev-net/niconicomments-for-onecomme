@@ -3,6 +3,7 @@ import NiconiComments, {
   FormattedComment,
   Canvas,
 } from "@xpadev-net/niconicomments";
+import { decodeSpecialChars } from "@/utils/decodeSpecialChars";
 
 type Image = {
   pos: number;
@@ -25,6 +26,7 @@ class ImageComment extends NiconiComments.internal.comments.HTML5Comment {
         "\u2003"
       );
     }
+    comment.content = decodeSpecialChars(comment.content);
     const raw = comment.content;
     super(comment, context);
     this.images = images;

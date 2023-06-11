@@ -4,7 +4,6 @@ import NiconiComments from "@xpadev-net/niconicomments";
 import type { FormattedComment } from "@xpadev-net/niconicomments";
 import "./style.css";
 import { CommonData } from "@/@types/comments";
-import { decodeSpecialChars } from "@/utils/decodeSpecialChars";
 import { ImageComment } from "@/niconicomments/ImageComment";
 
 const JSON_PATH = "../../comment.json";
@@ -50,7 +49,7 @@ const init = async () => {
           (comment: CommonData) => {
             processedComments.push(comment.data.id);
             return {
-              content: decodeSpecialChars(comment.data.comment),
+              content: comment.data.comment,
               date: Math.floor(comment.data.timestamp / 1000),
               date_usec: Number(comment.data.timestamp.toString().slice(-3)),
               id: processedComments.length,
