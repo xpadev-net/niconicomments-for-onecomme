@@ -38,11 +38,30 @@ class ImageComment extends NiconiComments.internal.comments.HTML5Comment {
     if (this.images.length > 0) {
       const context = image.getContext("2d");
       if (!context) return image;
+      const space = context.measureText("\u2003");
       for (const image of this.images) {
         const img = new Image();
         img.onload = () => {
-          const width = context.measureText(this.raw.slice(0, image.pos));
-          context?.drawImage(img, width.width, 0);
+          const leftSpace = context.measureText(this.raw.slice(0, image.pos));
+          const scale = Math.min(
+            space.width / img.naturalWidth,
+            this.comment.fontSize / img.naturalHeight
+          );
+          const width = img.naturalWidth * scale;
+          const height = img.naturalHeight * scale;
+          const paddingLeft = (space.width - width) / 2;
+          const paddingTop = (this.comment.fontSize - height) / 2;
+          context?.drawImage(
+            img,
+            0,
+            0,
+            img.naturalWidth,
+            img.naturalHeight,
+            leftSpace.width + paddingLeft,
+            paddingTop,
+            width,
+            height
+          );
         };
         img.src = image.url;
       }
