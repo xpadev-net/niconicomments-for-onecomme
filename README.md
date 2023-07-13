@@ -68,4 +68,4 @@ niconicommentsを使ってコメントを表示する配信者向けツールで
 
 
 ## スペシャルサンクス
-[Aka Diffusion](https://github.com/aka7774) さんの[フォーク](https://github.com/aka7774/niconicomments-for-onecomme)から絵文字とHTMLの対応を取り込ませていただきました
+[Aka Diffusion](https://github.com/aka7774) さんの[フォーク](https://github.com/aka7774/niconicomments-for-onecomme)からHTMLの対応を取り込ませていただきました
