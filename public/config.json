@@ -1,4 +1,7 @@
 {
   "commands": [],
-  "defaultCommand": ""
+  "defaultCommand": "",
+  "replace": {
+    "<div[^>]*?>(.*?)</div[^>]*?>": "$1"
+  }
 }

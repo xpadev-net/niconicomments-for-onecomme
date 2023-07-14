@@ -4,6 +4,7 @@ import NiconiComments, {
   Canvas,
 } from "@xpadev-net/niconicomments";
 import { decodeSpecialChars } from "@/utils/decodeSpecialChars";
+import { removeHTMLTag, replaceUserMap } from "@/utils/replace";
 
 type Image = {
   pos: number;
@@ -26,7 +27,9 @@ class ImageComment extends NiconiComments.internal.comments.HTML5Comment {
         "\u2003"
       );
     }
-    comment.content = decodeSpecialChars(comment.content);
+    comment.content = decodeSpecialChars(
+      removeHTMLTag(replaceUserMap(comment.content))
+    );
     const raw = comment.content;
     super(comment, context);
     this.images = images;

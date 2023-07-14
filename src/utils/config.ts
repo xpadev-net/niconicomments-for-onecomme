@@ -1,9 +1,11 @@
-import { $any, $array, $object, $string, access, Infer } from "lizod";
+import { $any, $array, $object, $record, $string, access, Infer } from "lizod";
 
 const condition = $object({
   object: $string,
   value: $any,
 });
+
+const replaceMap = $record($string, $string);
 
 const validate = $object({
   commands: $array(
@@ -13,29 +15,33 @@ const validate = $object({
     })
   ),
   defaultCommand: $string,
+  replace: replaceMap,
 });
 
 export type TConfig = Infer<typeof validate>;
 export type TCondition = Infer<typeof condition>;
+export type TReplaceMap = Infer<typeof replaceMap>;
 
-const getConfig = async (): Promise<TConfig> => {
+export let config: TConfig;
+
+const getConfig = async () => {
   const req = await fetch("./config.json");
-  const config = (await req.json()) as unknown;
+  const data = (await req.json()) as unknown;
   const ctx = { errors: [] };
-  if (!validate(config, ctx)) {
+  if (!validate(data, ctx)) {
     document.body.innerHTML = "";
     for (const errorPath of ctx.errors) {
       const msg = document.createElement("div");
       msg.style.backgroundColor = "rgba(255,0,0,0.5)";
       msg.innerHTML = `[invalid config] error at ${errorPath} ${access(
-        config,
+        data,
         errorPath
       )}`;
       document.body.append(msg);
     }
     throw new Error();
   }
-  return config;
+  config = data;
 };
 
-export { getConfig };
+export const initConfig = getConfig();

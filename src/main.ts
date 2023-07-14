@@ -5,7 +5,7 @@ import type { FormattedComment } from "@xpadev-net/niconicomments";
 import "./style.css";
 import { Comments, CommonData } from "@/@types/comments";
 import { ImageComment } from "@/niconicomments/ImageComment";
-import { getConfig, TCondition } from "@/utils/config";
+import { config, initConfig, TCondition } from "@/utils/config";
 
 const JSON_PATH = "../../comment.json";
 const LIMIT = 1000;
@@ -24,7 +24,7 @@ const init = async () => {
     throw new Error("fail to get root element");
   }
   rootElement.innerHTML = `<canvas id="canvas" width="1920" height="1080"></canvas>`;
-  const config = await getConfig();
+  await initConfig;
   await window.OneSDK.ready();
   const canvas = document.getElementById("canvas") as HTMLCanvasElement;
   if (!canvas) throw new Error("fail to get canvas element");
