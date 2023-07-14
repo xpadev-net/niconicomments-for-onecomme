@@ -3,6 +3,7 @@ const pairs: { [key: string]: string } = {
   "&#39;": "'",
   "&lt;": "<",
   "&gt;": ">",
+  "&quot;": '"',
 };
 const decodeSpecialChars = (input: string) => {
   for (const key of Object.keys(pairs)) {
