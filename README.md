@@ -37,12 +37,41 @@ niconicommentsを使ってコメントを表示する配信者向けツールで
 `commands`内に各条件を配列として書き込んでください
 
 データ構造は以下のとおりです
+```typescript
+type condition = {
+  "object": "<string>", //フィールド名
+  "operator"?: "equal"|"moreThan"|"lessThan", //無指定か"equal"(等しい)、"moreThan"(より多い)、"lessThan"(未満)のいずれかを指定することができます。指定しなかった場合はequalとして処理されます
+  "value": "<any>" //比較対象の値
+}
+type commands = {
+  "condition": condition | condition[];//条件
+  "content": "<string>" //条件に合致する場合に適用されるコマンド
+}
+```
+#### サンプル
 ```json
 {
   "condition": { //適用する条件
     "object": "isFirstTime", //コメントのどのフィールドを参照するかを指定してください
     "value": true //参照したフィールドが指定された値の場合コマンドが適用されます
   },
+  "content": "big red" //適用したいコマンド(スペース区切り)
+}
+```
+```json
+{
+  "condition": [//適用する条件
+    { 
+      "object": "price", //スパチャの額が
+      "operator": "moreThan", //より多い
+      "value": 1000 //1000
+    },
+    {
+      "object": "unit", //通貨の単位が
+      "operator": "equal",//等しい
+      "value": "\\" //円
+    }
+  ],
   "content": "big red" //適用したいコマンド(スペース区切り)
 }
 ```
