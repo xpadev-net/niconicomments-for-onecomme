@@ -5,7 +5,8 @@ import type { FormattedComment } from "@xpadev-net/niconicomments";
 import "./style.css";
 import { Comments, CommonData } from "@/@types/comments";
 import { ImageComment } from "@/niconicomments/ImageComment";
-import { config, initConfig, TCondition } from "@/utils/config";
+import { initConfig } from "@/utils/config";
+import { applyCommands } from "@/utils/command";
 
 const JSON_PATH = "../../comment.json";
 const LIMIT = 1000;
@@ -39,27 +40,6 @@ const init = async () => {
   setInterval(() => {
     nico.drawCanvas(Math.floor((performance.now() - startTime) / 10));
   }, 10);
-  const applyCommands = (comment: CommonData) => {
-    const commands: string[] = config.defaultCommand.split(/\s+/);
-    const getConditionValue = (condition: TCondition) => {
-      try {
-        let result = comment as { [key: string]: unknown };
-        const keys = condition.object.split(".");
-        for (const key of keys) {
-          result = result[key] as { [key: string]: unknown };
-        }
-        return result;
-      } catch (_) {
-        return;
-      }
-    };
-    for (const item of config.commands) {
-      if (getConditionValue(item.condition) == item.condition.value) {
-        commands.push(...item.content.split(/\s+/));
-      }
-    }
-    return commands;
-  };
   const processedComments: string[] = [];
   const commentHandler = (comments: Comments) => {
     const filter = comments.filter(

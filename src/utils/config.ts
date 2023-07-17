@@ -1,7 +1,21 @@
-import { $any, $array, $object, $record, $string, access, Infer } from "lizod";
+import {
+  $any,
+  $array,
+  $enum,
+  $object,
+  $opt,
+  $record,
+  $string,
+  $union,
+  access,
+  Infer,
+} from "lizod";
+
+const operator = $enum(["equal", "moreThan", "lessThan"]);
 
 const condition = $object({
   object: $string,
+  operator: $opt(operator),
   value: $any,
 });
 
@@ -10,7 +24,7 @@ const replaceMap = $record($string, $string);
 const validate = $object({
   commands: $array(
     $object({
-      condition: condition,
+      condition: $union([$array(condition), condition]),
       content: $string,
     })
   ),
