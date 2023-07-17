@@ -13,10 +13,10 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
-      - run: npm install -g yarn
-      - run: yarn install
-      - run: yarn build
+          node-version: 20
+      - run: npm install -g pnpm
+      - run: pnpm install
+      - run: pnpm build
       - run: cd dist && zip -r niconicomments_for_onecomme-${GITHUB_REF##*/}.zip *
       - uses: softprops/action-gh-release@v1
         with:
