@@ -26,8 +26,14 @@ const processCondition = (
   if (condition.operator === "moreThan") {
     return getConditionValue(comment, condition) > condition.value;
   }
+  if (condition.operator === "moreEqual") {
+    return getConditionValue(comment, condition) >= condition.value;
+  }
   if (condition.operator === "lessThan") {
     return getConditionValue(comment, condition) < condition.value;
+  }
+  if (condition.operator === "lessEqual") {
+    return getConditionValue(comment, condition) <= condition.value;
   }
   return getConditionValue(comment, condition) == condition.value;
 };
