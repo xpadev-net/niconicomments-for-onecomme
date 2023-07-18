@@ -23,6 +23,9 @@ const processCondition = (
   comment: { [key: string]: unknown },
   condition: TCondition
 ) => {
+  if (condition.operator === "notEqual") {
+    return getConditionValue(comment, condition) != condition.value;
+  }
   if (condition.operator === "moreThan") {
     return getConditionValue(comment, condition) > condition.value;
   }
