@@ -11,7 +11,7 @@ import {
   Infer,
 } from "lizod";
 
-const operator = $enum(["equal", "moreThan", "lessThan"]);
+const operator = $enum(["equal", "moreThan", "moreEqual", "lessThan", "lessEqual"]);
 
 const condition = $object({
   object: $string,
