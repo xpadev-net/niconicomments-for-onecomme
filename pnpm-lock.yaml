@@ -15,8 +15,8 @@ devDependencies:
     specifier: ^5.62.0
     version: 5.62.0(eslint@8.45.0)(typescript@5.1.6)
   '@xpadev-net/niconicomments':
-    specifier: ^0.2.54
-    version: 0.2.54
+    specifier: ^0.2.55
+    version: 0.2.55
   eslint:
     specifier: ^8.45.0
     version: 8.45.0
@@ -467,8 +467,8 @@ packages:
       eslint-visitor-keys: 3.4.1
     dev: true
 
-  /@xpadev-net/niconicomments@0.2.54:
-    resolution: {integrity: sha512-Zy0wyVjF9iMx7mxcKhx1gMdME8YwfsNHMDDJbuDtVHDRJOUTUTDf5mjHWjuLm/UwDDoGoqr6JklrXZ7BjN75aA==}
+  /@xpadev-net/niconicomments@0.2.55:
+    resolution: {integrity: sha512-yeIrVTvZGmFILw0feZ/sJC2MpGDQfi6lN/P/mX6zE6Hr7zZCyV/inkrZ/x74oPY/ytpNRUkEwDLcGFl08lCq5w==}
     dev: true
 
   /acorn-jsx@5.3.2(acorn@8.10.0):

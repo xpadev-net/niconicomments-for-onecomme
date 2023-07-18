@@ -23,7 +23,7 @@
     "@types/node": "^20.4.2",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
-    "@xpadev-net/niconicomments": "^0.2.54",
+    "@xpadev-net/niconicomments": "^0.2.55",
     "eslint": "^8.45.0",
     "eslint-config-prettier": "8.8.0",
     "husky": "^8.0.3",
