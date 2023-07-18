@@ -34,6 +34,7 @@ niconicommentsを使ってコメントを表示する配信者向けツールで
 指定したフィールドが特定の値の場合にコマンドを適用することが出来ます  
 フィールドの仕様は わんコメ公式の技術ドキュメント [Commentの構造](https://onecomme.com/docs/developer/comment-json) を参照してください  
 ネストしているフィールドについては `item.name` などフィールド名を `.` でつなげることで参照できます  
+データは `CommonData` 直下から読み込まれるため、 `BaseComment` や各配信サービスのデータを取得したい場合は先頭に `data.` を付ける必要があります  
 `commands`内に各条件を配列として書き込んでください
 
 データ構造は以下のとおりです
@@ -52,7 +53,7 @@ type commands = {
 ```json
 {
   "condition": { //適用する条件
-    "object": "isFirstTime", //コメントのどのフィールドを参照するかを指定してください
+    "object": "data.isFirstTime", //コメントのどのフィールドを参照するかを指定してください
     "value": true //参照したフィールドが指定された値の場合コマンドが適用されます
   },
   "content": "big red" //適用したいコマンド(スペース区切り)
@@ -62,12 +63,12 @@ type commands = {
 {
   "condition": [//適用する条件
     { 
-      "object": "price", //スパチャの額が
+      "object": "data.price", //スパチャの額が
       "operator": "moreThan", //より多い
       "value": 1000 //1000
     },
     {
-      "object": "unit", //通貨の単位が
+      "object": "data.unit", //通貨の単位が
       "operator": "equal",//等しい
       "value": "\\" //円
     }
@@ -97,7 +98,7 @@ type commands = {
   "commands": [
     {
       "condition": {
-        "object": "isFirstTime",
+        "object": "data.isFirstTime",
         "value": true
       },
       "content": "big red"
