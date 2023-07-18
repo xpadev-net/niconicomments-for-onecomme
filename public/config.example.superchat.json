@@ -133,6 +133,11 @@
 		{
 			"condition": [
 				{
+					"object": "price",
+					"operator": "moreThan",
+					"value": 0
+				},
+				{
 					"object": "unit",
 					"operator": "notEqual",
 					"value": "\\"
