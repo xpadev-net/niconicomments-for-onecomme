@@ -1,6 +1,6 @@
 {
   "name": "niconicomments-for-onecomme",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "template for onecomme using niconicomments",
   "main": "src/main.ts",
   "author": "xpa <xpadev@gmail.com>",
