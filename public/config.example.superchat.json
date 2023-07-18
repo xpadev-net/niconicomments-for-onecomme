@@ -1,0 +1,153 @@
+{
+	"commands": [
+		{
+			"condition": [
+				{
+					"object": "price",
+					"operator": "lessThan",
+					"value": 200
+				},
+				{
+					"object": "unit",
+					"operator": "equal",
+					"value": "\\"
+				}
+			],
+			"content": "nico:fill:#1565c0"
+		},
+		{
+			"condition": [
+				{
+					"object": "price",
+					"operator": "moreEqual",
+					"value": 200
+				},
+				{
+					"object": "price",
+					"operator": "lessThan",
+					"value": 500
+				},
+				{
+					"object": "unit",
+					"operator": "equal",
+					"value": "\\"
+				}
+			],
+			"content": "nico:fill:#00b8d4"
+		},
+		{
+			"condition": [
+				{
+					"object": "price",
+					"operator": "moreEqual",
+					"value": 500
+				},
+				{
+					"object": "price",
+					"operator": "lessThan",
+					"value": 1000
+				},
+				{
+					"object": "unit",
+					"operator": "equal",
+					"value": "\\"
+				}
+			],
+			"content": "nico:fill:#00bfa5"
+		},
+		{
+			"condition": [
+				{
+					"object": "price",
+					"operator": "moreEqual",
+					"value": 1000
+				},
+				{
+					"object": "price",
+					"operator": "lessThan",
+					"value": 2000
+				},
+				{
+					"object": "unit",
+					"operator": "equal",
+					"value": "\\"
+				}
+			],
+			"content": "nico:fill:#ffb300"
+		},
+		{
+			"condition": [
+				{
+					"object": "price",
+					"operator": "moreEqual",
+					"value": 2000
+				},
+				{
+					"object": "price",
+					"operator": "lessThan",
+					"value": 5000
+				},
+				{
+					"object": "unit",
+					"operator": "equal",
+					"value": "\\"
+				}
+			],
+			"content": "nico:fill:#e65100"
+		},
+		{
+			"condition": [
+				{
+					"object": "price",
+					"operator": "moreEqual",
+					"value": 5000
+				},
+				{
+					"object": "price",
+					"operator": "lessThan",
+					"value": 10000
+				},
+				{
+					"object": "unit",
+					"operator": "equal",
+					"value": "\\"
+				}
+			],
+			"content": "nico:fill:#c2185b"
+		},
+		{
+			"condition": [
+				{
+					"object": "price",
+					"operator": "moreEqual",
+					"value": 10000
+				},
+				{
+					"object": "unit",
+					"operator": "equal",
+					"value": "\\"
+				}
+			],
+			"content": "nico:fill:#d00000"
+		},
+		{
+			"condition": [
+				{
+					"object": "price",
+					"operator": "moreThan",
+					"value": 0
+				},
+				{
+					"object": "unit",
+					"operator": "notEqual",
+					"value": "\\"
+				}
+			],
+			"content": "nico:fill:purple"
+		}
+	],
+	"defaultCommand": "",
+	"replace": {
+		"<div[^>]*?>(.*?)</div[^>]*?>": "$1"
+	}
+}
