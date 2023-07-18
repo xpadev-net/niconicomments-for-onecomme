@@ -110,4 +110,4 @@ type commands = {
 
 
 ## スペシャルサンクス
-[Aka Diffusion](https://github.com/aka7774) さんの[フォーク](https://github.com/aka7774/niconicomments-for-onecomme)からHTMLの対応を取り込ませていただきました
+[Aka Diffusion](https://github.com/aka7774) さんの[フォーク](https://github.com/aka7774/niconicomments-for-onecomme)からHTMLの対応及び複数の条件設定の実装を取り込ませていただきました
