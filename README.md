@@ -70,7 +70,7 @@ type commands = {
     {
       "object": "data.unit", //通貨の単位が
       "operator": "equal",//等しい
-      "value": "\\" //円
+      "value": "¥" //円
     }
   ],
   "content": "big red" //適用したいコマンド(スペース区切り)

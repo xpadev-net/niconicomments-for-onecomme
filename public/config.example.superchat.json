@@ -10,7 +10,7 @@
         {
           "object": "data.unit",
           "operator": "equal",
-          "value": "\\"
+          "value": "¥"
         }
       ],
       "content": "nico:fill:#1565c0"
@@ -30,7 +30,7 @@
         {
           "object": "data.unit",
           "operator": "equal",
-          "value": "\\"
+          "value": "¥"
         }
       ],
       "content": "nico:fill:#00b8d4"
@@ -50,7 +50,7 @@
         {
           "object": "data.unit",
           "operator": "equal",
-          "value": "\\"
+          "value": "¥"
         }
       ],
       "content": "nico:fill:#00bfa5"
@@ -70,7 +70,7 @@
         {
           "object": "data.unit",
           "operator": "equal",
-          "value": "\\"
+          "value": "¥"
         }
       ],
       "content": "nico:fill:#ffb300"
@@ -90,7 +90,7 @@
         {
           "object": "data.unit",
           "operator": "equal",
-          "value": "\\"
+          "value": "¥"
         }
       ],
       "content": "nico:fill:#e65100"
@@ -110,7 +110,7 @@
         {
           "object": "data.unit",
           "operator": "equal",
-          "value": "\\"
+          "value": "¥"
         }
       ],
       "content": "nico:fill:#c2185b"
@@ -125,7 +125,7 @@
         {
           "object": "data.unit",
           "operator": "equal",
-          "value": "\\"
+          "value": "¥"
         }
       ],
       "content": "nico:fill:#d00000"
@@ -140,7 +140,7 @@
         {
           "object": "data.unit",
           "operator": "notEqual",
-          "value": "\\"
+          "value": "¥"
         }
       ],
       "content": "nico:fill:purple"
