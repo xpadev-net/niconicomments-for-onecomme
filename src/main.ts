@@ -7,28 +7,25 @@ import { Comments, CommonData } from "@/@types/comments";
 import { ImageComment } from "@/niconicomments/ImageComment";
 import { initConfig } from "@/utils/config";
 import { applyCommands } from "@/utils/command";
+import { info } from "@/utils/logger";
 
 const JSON_PATH = "../../comment.json";
 const LIMIT = 1000;
 
-const info = (all: unknown) => {
-  const dom = document.createElement("div");
-  dom.innerHTML = JSON.stringify(all);
-  dom.classList.add("info");
-  document.getElementById("app")?.append(dom);
-  setTimeout(() => dom.remove(), 10000);
-};
-
 const init = async () => {
   const rootElement = document.getElementById("app") as HTMLDivElement;
   if (!rootElement) {
-    throw new Error("fail to get root element");
+    info("fail to get root element");
+    return;
   }
   rootElement.innerHTML = `<canvas id="canvas" width="1920" height="1080"></canvas>`;
   await initConfig;
   await window.OneSDK.ready();
   const canvas = document.getElementById("canvas") as HTMLCanvasElement;
-  if (!canvas) throw new Error("fail to get canvas element");
+  if (!canvas) {
+    info("fail to get canvas");
+    return;
+  }
   window.OneSDK.setup({ jsonPath: JSON_PATH, commentLimit: LIMIT });
   const nico = new NiconiComments(canvas, [], {
     format: "formatted",
