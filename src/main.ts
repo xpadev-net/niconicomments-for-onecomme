@@ -55,7 +55,7 @@ const init = async () => {
             layer: 0,
             mail: commands,
             owner: comment.data.isOwner,
-            premium: false,
+            premium: true,
             user_id: -1,
             vpos: Math.floor((performance.now() - startTime) / 10) + 200,
           } as FormattedComment;
